@@ -6,40 +6,47 @@
   <title>Restaurant Menu</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f8f8;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to right, #fffaf0, #f5f5dc);
       margin: 0;
       padding: 20px;
+      color: #2c3e50;
     }
     h1 {
       text-align: center;
+      font-size: 3em;
+      margin-bottom: 0.5em;
+      color: #8e44ad;
     }
     .filters {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     .filters button {
       margin: 5px;
-      padding: 10px 20px;
-      border: none;
-      background-color: #333;
+      padding: 12px 24px;
+      border: 1px solid #8e44ad;
+      background-color: #f39c12;
       color: white;
+      font-weight: bold;
       cursor: pointer;
-      border-radius: 5px;
+      border-radius: 25px;
+      transition: 0.3s;
     }
+    .filters button:hover,
     .filters button.active {
-      background-color: #d35400;
+      background-color: #8e44ad;
     }
     .menu {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 25px;
     }
     .item {
       background: white;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     }
     .category {
       display: none;
@@ -49,10 +56,29 @@
     }
     .item-title {
       font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 8px;
     }
     .price {
       float: right;
-      color: #d35400;
+      color: #c0392b;
+    }
+    .feedback {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .feedback button {
+      padding: 10px 20px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .feedback button:hover {
+      background-color: #1e8449;
     }
   </style>
 </head>
@@ -67,7 +93,9 @@
     <button class="filter-btn" data-category="dessert">Desserts</button>
   </div>
   <div class="menu" id="menu"></div>
-
+  <div class="feedback">
+    <button onclick="window.open('https://forms.gle/YOUR_FEEDBACK_FORM_URL', '_blank')">Give Feedback</button>
+  </div>
   <script>
     const menuItems = [
       { title: "Spaghetti sauce Tomate fraîche", price: "$10.50", category: "pates" },
