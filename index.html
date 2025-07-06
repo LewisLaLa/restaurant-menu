@@ -44,7 +44,13 @@
       background-color: #384e04;
     }
 
+    
     .section-tabs {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 10px;
+      -webkit-overflow-scrolling: touch;
+    
       display: flex;
       justify-content: center;
       gap: 20px;
@@ -52,7 +58,12 @@
       flex-wrap: wrap;
     }
 
+    
     .section-tabs button {
+      display: inline-block;
+      white-space: normal;
+      margin: 5px;
+    
   background-color: #2a3b03;
   border: 3px solid #D6D4A9;
   color: #D6D4A9;
