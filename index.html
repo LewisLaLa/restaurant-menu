@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Menu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .filters {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .filters button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .filters button.active {
+      background-color: #d35400;
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .item {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .category {
+      display: none;
+    }
+    .category.show {
+      display: block;
+    }
+    .item-title {
+      font-weight: bold;
+    }
+    .price {
+      float: right;
+      color: #d35400;
+    }
+  </style>
+</head>
+<body>
+  <h1>Restaurant Menu</h1>
+  <div class="filters">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="pates">Pâtes</button>
+    <button class="filter-btn" data-category="pizza">Pizza</button>
+    <button class="filter-btn" data-category="hors">Hors-d'oeuvres</button>
+    <button class="filter-btn" data-category="platters">Platters</button>
+    <button class="filter-btn" data-category="dessert">Desserts</button>
+  </div>
+  <div class="menu" id="menu"></div>
+
+  <script>
+    const menuItems = [
+      { title: "Spaghetti sauce Tomate fraîche", price: "$10.50", category: "pates" },
+      { title: "Spaghetti sauce Bolognaise", price: "$13.50", category: "pates" },
+      { title: "Fettuccine Alfredo avec poulet", price: "$15.00", category: "pates" },
+      { title: "Fettuccine Alfredo", price: "$13.00", category: "pates" },
+      { title: "Penne Arrabbiata", price: "$11.00", category: "pates" },
+      { title: "Penne Aubergine", price: "$11.50", category: "pates" },
+      { title: "Linguines aux crevettes sauce rosée", price: "$16.00", category: "pates" },
+      { title: "Pizza Margheritta", price: "$12.00", category: "pizza" },
+      { title: "Pizza Vegetarienne", price: "$13.00", category: "pizza" },
+      { title: "Pizza Libanaise", price: "$14.00", category: "pizza" },
+      { title: "Pizza Pepperoni", price: "$15.00", category: "pizza" },
+      { title: "Pizza Soujouk", price: "$15.00", category: "pizza" },
+      { title: "Pizza Banane au chocolat", price: "$12.00", category: "pizza" },
+      { title: "Quiche aux epinards", price: "$11.00", category: "hors" },
+      { title: "Pommes Frites", price: "$4.00", category: "hors" },
+      { title: "Hommos", price: "$5.00", category: "hors" },
+      { title: "Chicken Caesar Salade", price: "$13.00", category: "hors" },
+      { title: "Salade Saison", price: "$6.00", category: "hors" },
+      { title: "Tabbouleh", price: "$6.00", category: "hors" },
+      { title: "Cheese Burger", price: "$15.00", category: "platters" },
+      { title: "Truffle Burger", price: "$19.00", category: "platters" },
+      { title: "Taouk", price: "$12.00", category: "platters" },
+      { title: "Steak Sandwich", price: "$18.00", category: "platters" },
+      { title: "Chicken Nuggets", price: "$12.00", category: "platters" },
+      { title: "Soufflé de Pomme de terre", price: "$12.00", category: "platters" },
+      { title: "Escalope (Poulet)", price: "$16.00", category: "platters" },
+      { title: "Pain perdu (2prs)", price: "$12.00", category: "dessert" },
+      { title: "Fondant au chocolat", price: "$10.00", category: "dessert" },
+      { title: "Cake (Vanille - Chocolat)", price: "$5.00", category: "dessert" },
+      { title: "Boule de glace", price: "$1.50", category: "dessert" }
+    ];
+
+    const menuContainer = document.getElementById("menu");
+
+    function renderMenu(category) {
+      menuContainer.innerHTML = "";
+      menuItems
+        .filter(item => category === "all" || item.category === category)
+        .forEach(item => {
+          const div = document.createElement("div");
+          div.className = "item category show";
+          div.innerHTML = `<div class="item-title">${item.title}<span class="price">${item.price}</span></div>`;
+          menuContainer.appendChild(div);
+        });
+    }
+
+    document.querySelectorAll(".filter-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+        renderMenu(button.dataset.category);
+      });
+    });
+
+    renderMenu("all");
+  </script>
+</body>
+</html>
