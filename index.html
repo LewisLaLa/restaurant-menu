@@ -52,39 +52,36 @@
     }
 
     .section-tabs {
-      overflow-x: auto;
-      white-space: nowrap;
-      padding: 5px 0;
-      -webkit-overflow-scrolling: touch;
+      background-color: #fef7ec;
+      position: sticky;
+      top: 40px;
+      z-index: 999;
       display: flex;
       justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
-      margin: 0;
+      padding: 5px 0;
     }
 
     .section-tabs button {
-      display: inline-block;
-      white-space: normal;
+      flex: 1 1 30%;
+      max-width: 120px;
+      box-sizing: border-box;
       margin: 5px;
       background-color: #2a3b03;
       border: 3px solid #D6D4A9;
       color: #D6D4A9;
-      padding: 8px 24px;
+      padding: 8px 16px;
       font-family: 'Georgia', serif;
       font-size: 0.9em;
       cursor: pointer;
-      width: 30vw;
-      min-width: 100px;
-      max-width: 160px;
       height: 60px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-shadow: none;
-      transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
       border-radius: 16px;
+      transition: all 0.3s ease;
     }
 
     .section-tabs button.active {
@@ -98,8 +95,13 @@
     }
 
     .filters {
+      position: sticky;
+      top: 120px;
+      z-index: 998;
+      background-color: #fef7ec;
       text-align: center;
-      margin: 20px 10px;
+      margin: 0;
+      padding: 10px 0;
       overflow-x: auto;
       white-space: nowrap;
     }
@@ -181,15 +183,13 @@
     </div>
   </header>
 
-  <div class="filters-wrapper" style="position: sticky; top: 80px; z-index: 999; background-color: #fef7ec;">
-    <div class="filters">
-      <button class="filter-btn active" data-category="all">All</button>
-      <button class="filter-btn" data-category="pates">Pâtes</button>
-      <button class="filter-btn" data-category="pizza">Pizza</button>
-      <button class="filter-btn" data-category="hors">Hors-d'oeuvres</button>
-      <button class="filter-btn" data-category="platters">Platters</button>
-      <button class="filter-btn" data-category="dessert">Desserts</button>
-    </div>
+  <div class="filters">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="pates">Pâtes</button>
+    <button class="filter-btn" data-category="pizza">Pizza</button>
+    <button class="filter-btn" data-category="hors">Hors-d'oeuvres</button>
+    <button class="filter-btn" data-category="platters">Platters</button>
+    <button class="filter-btn" data-category="dessert">Desserts</button>
   </div>
 
   <div class="menu" id="menu"></div>
