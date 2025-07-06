@@ -150,7 +150,22 @@
     .section-tabs button {
     .section-tabs button.active {
     .section-tabs button img {
-    .filters button.active {</style>
+    .filters button.active {
+
+    .logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+    .logo-img {
+  max-width: 200px;
+  height: auto;
+  display: block;
+}
+
+</style>
 </head>
 <body>
   <header>
@@ -158,6 +173,11 @@
     <button onclick="window.location.href='feedback.html'">Feedback</button>
     <button onclick="window.location.href='about.html'">About</button>
   </header>
+
+  
+  <div class="logo-container">
+    <img src="logo_transparent.png" alt="Grand Hôtel Logo" class="logo-img" />
+  </div>
 
   <div class="section-tabs">
     <button class="active" onclick="scrollToMenu()">
