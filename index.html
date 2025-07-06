@@ -16,13 +16,14 @@
     }
 
     header {
+      position: static;
       background-color: #2a3b03;
       padding: 10px;
       display: flex;
       justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
-      position: static;
+      position: sticky;
       top: 0;
       z-index: 1000;
     }
@@ -45,7 +46,7 @@
     }
 
     .sticky-wrapper {
-      position: static;
+      position: sticky;
       top: 50px;
       z-index: 999;
       background-color: #fef7ec;
@@ -175,7 +176,7 @@
       </button>
     </div>
 
-    <div class="filters">
+    <div class="filters" style="position: sticky; top: 120px; z-index: 998; background-color: #fef7ec;">
       <button class="filter-btn active" data-category="all">All</button>
       <button class="filter-btn" data-category="pates">Pâtes</button>
       <button class="filter-btn" data-category="pizza">Pizza</button>
