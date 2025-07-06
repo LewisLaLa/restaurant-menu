@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Restaurant Menu</title>
+  <title>Beverages Menu</title>
   <style>
     body {
       font-family: 'Georgia', serif;
@@ -11,7 +11,6 @@
       margin: 0;
       padding: 0;
       color: #2a3b03;
-      font-weight: normal;
     }
 
     header {
@@ -21,7 +20,6 @@
       justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
-      position: static;
     }
 
     header button {
@@ -42,15 +40,10 @@
     }
 
     .section-tabs {
-      position: static;
-      overflow-x: auto;
-      white-space: nowrap;
-      padding: 10px 0;
-      -webkit-overflow-scrolling: touch;
       display: flex;
       justify-content: center;
-      gap: 10px;
       flex-wrap: wrap;
+      padding: 10px 0;
     }
 
     .section-tabs button {
@@ -67,8 +60,6 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-shadow: none;
-      transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
       border-radius: 16px;
     }
 
@@ -91,10 +82,6 @@
       padding: 10px 0;
       overflow-x: auto;
       white-space: nowrap;
-    }
-
-    .filters::-webkit-scrollbar {
-      display: none;
     }
 
     .filters button {
@@ -137,34 +124,21 @@
       float: right;
       color: red;
     }
-
-    .category {
-      display: none;
-    }
-
-    .category.show {
-      display: block;
-    }
-  
-    .section-tabs {
-    .section-tabs button {
-    .section-tabs button.active {
-    .section-tabs button img {
-    .filters button.active {</style>
+  </style>
 </head>
 <body>
   <header>
-    <button onclick="scrollToMenu()">Menu</button>
+    <button onclick="window.location.href='index.html'">Menu</button>
     <button onclick="window.location.href='feedback.html'">Feedback</button>
     <button onclick="window.location.href='about.html'">About</button>
   </header>
 
   <div class="section-tabs">
-    <button class="active" onclick="scrollToMenu()">
+    <button onclick="window.location.href='index.html'">
       <img src="https://img.icons8.com/ios-filled/50/ffffff/restaurant.png" alt="Food Icon" />
       Food
     </button>
-    <button onclick="window.location.href='beverages.html'">
+    <button class="active" onclick="window.location.href='beverages.html'">
       <img src="https://img.icons8.com/ios-filled/50/ffffff/cocktail.png" alt="Beverages Icon" />
       Beverages
     </button>
@@ -176,43 +150,59 @@
 
   <div class="filters">
     <button class="filter-btn active" data-category="all">All</button>
-    <button class="filter-btn" data-category="pâtes">Pâtes</button>
-    <button class="filter-btn" data-category="pizza">Pizza</button>
-    <button class="filter-btn" data-category="horsdoeuvres">Hors-d'oeuvres</button>
-    <button class="filter-btn" data-category="platters">Platters</button>
+<button class="filter-btn" data-category="les_rafraîchissements">Les Rafraîchissements</button>
+<button class="filter-btn" data-category="cafe">Café</button>
+<button class="filter-btn" data-category="arak">Arak</button>
+<button class="filter-btn" data-category="les_vins_locaux">Les Vins Locaux</button>
+<button class="filter-btn" data-category="les_aperitifs">Les Apéritifs</button>
+
   </div>
 
   <div class="menu" id="menu"></div>
 
   <script>
     const menuItems = [
-      { title: "Spaghetti sauce Tomate fraîche", price: "$10.50", category: "pâtes" },
-      { title: "Spaghetti sauce Bolognaise", price: "$13.50", category: "pâtes" },
-      { title: "Fettuccine Alfredo avec poulet", price: "$14.00", category: "pâtes" },
-      { title: "Fettuccine Alfredo", price: "$13.00", category: "pâtes" },
-      { title: "Penne Arrabiata", price: "$11.50", category: "pâtes" },
-      { title: "Penne Aubergine", price: "$11.50", category: "pâtes" },
-      { title: "Linguines aux crevettes sauce rosée", price: "$16.00", category: "pâtes" },
-      { title: "Pizza Margheritta", price: "$12.00", category: "pizza" },
-      { title: "Pizza Végétarienne", price: "$13.00", category: "pizza" },
-      { title: "Pizza Libanaise", price: "$14.00", category: "pizza" },
-      { title: "Pizza Pepperoni", price: "$15.00", category: "pizza" },
-      { title: "Pizza Soujouk", price: "$15.00", category: "pizza" },
-      { title: "Pizza Banane au chocolat", price: "$12.00", category: "pizza" },
-      { title: "Quiche aux épinards", price: "$11.00", category: "horsdoeuvres" },
-      { title: "Pommes Frites", price: "$4.00", category: "horsdoeuvres" },
-      { title: "Hommos", price: "$5.00", category: "horsdoeuvres" },
-      { title: "Chicken Caesar Salade", price: "$13.00", category: "horsdoeuvres" },
-      { title: "Salade Saison", price: "$6.00", category: "horsdoeuvres" },
-      { title: "Tabbouleh", price: "$6.00", category: "horsdoeuvres" },
-      { title: "Cheese Burger", price: "$15.00", category: "platters" },
-      { title: "Truffle Burger", price: "$19.00", category: "platters" },
-      { title: "Taouk", price: "$12.00", category: "platters" },
-      { title: "Steak Sandwich", price: "$18.00", category: "platters" },
-      { title: "Chicken Nuggets", price: "$12.00", category: "platters" },
-      { title: "Soufflé de Pomme de terre", price: "$12.00", category: "platters" },
-      { title: "Escalope (Poulet)", price: "$16.00", category: "platters" }
-    ];
+  { title: "Ice Tea", price: "$2.00", category: "les_rafraîchissements" },
+  { title: "Boissons gazeuze", price: "$1.75", category: "les_rafraîchissements" },
+  { title: "Limonade", price: "$2.75", category: "les_rafraîchissements" },
+  { title: "Jus", price: "$1.75", category: "les_rafraîchissements" },
+  { title: "Eau gazeuze", price: "$2.00", category: "les_rafraîchissements" },
+  { title: "Bière Almaza", price: "$2.50", category: "les_rafraîchissements" },
+  { title: "Bière sans alcool", price: "$2.50", category: "les_rafraîchissements" },
+  { title: "Bière Mexicaine", price: "$3.00", category: "les_rafraîchissements" },
+  { title: "Bouteille eau tonic", price: "$1.50", category: "les_rafraîchissements" },
+  { title: "Nescafé", price: "$2.50", category: "cafe" },
+  { title: "Chocolat Chaud", price: "$3.25", category: "cafe" },
+  { title: "Espresso", price: "$2.50", category: "cafe" },
+  { title: "Cappuccino", price: "$3.00", category: "cafe" },
+  { title: "Café Turc", price: "$2.00", category: "cafe" },
+  { title: "Café Blanc", price: "$2.00", category: "cafe" },
+  { title: "Thé", price: "$1.75", category: "cafe" },
+  { title: "Infusion", price: "$2.00", category: "cafe" },
+  { title: "Btle eau grande", price: "$1.50", category: "cafe" },
+  { title: "Btle eau petite", price: "$1.00", category: "cafe" },
+  { title: "Bouteille spéciale", price: "$24.00", category: "arak" },
+  { title: "1/2 Bouteille spéciale", price: "$18.00", category: "arak" },
+  { title: "1/4 Bouteille spéciale", price: "$12.00", category: "arak" },
+  { title: "Verre d'arak Special", price: "$5.00", category: "arak" },
+  { title: "Rouge, Blanc, Rosé (La Bouteille)", price: "$16.00", category: "les_vins_locaux" },
+  { title: "Réserve du couvent", price: "$20.00", category: "les_vins_locaux" },
+  { title: "1/2 Bouteille", price: "$12.00", category: "les_vins_locaux" },
+  { title: "1/4 Bouteille", price: "$8.00", category: "les_vins_locaux" },
+  { title: "Verre de Vin", price: "$5.00", category: "les_vins_locaux" },
+  { title: "Whisky Scotch (Verre)", price: "$5.00", category: "les_aperitifs" },
+  { title: "Whisky 1/2 Bouteille", price: "$30.00", category: "les_aperitifs" },
+  { title: "Whisky la Bouteille", price: "$48.00", category: "les_aperitifs" },
+  { title: "Whisky Scotch (Verre) (old)", price: "$7.00", category: "les_aperitifs" },
+  { title: "Whisky 1/2 Bouteille (old)", price: "$50.00", category: "les_aperitifs" },
+  { title: "Whisky la Bouteille (old)", price: "$75.00", category: "les_aperitifs" },
+  { title: "Verre Gin", price: "$4.50", category: "les_aperitifs" },
+  { title: "Verre Vodka", price: "$4.50", category: "les_aperitifs" },
+  { title: "Verre Gin Tonic", price: "$6.00", category: "les_aperitifs" },
+  { title: "Verre cognac", price: "$10.00", category: "les_aperitifs" },
+  { title: "Bouteille eau tonic", price: "$1.50", category: "les_aperitifs" },
+  { title: "Nuts", price: "$1.20", category: "les_aperitifs" }
+];
 
     const menuContainer = document.getElementById("menu");
 
@@ -235,10 +225,6 @@
         renderMenu(button.dataset.category);
       });
     });
-
-    function scrollToMenu() {
-      document.getElementById("menu").scrollIntoView({ behavior: "smooth" });
-    }
 
     renderMenu("all");
   </script>
