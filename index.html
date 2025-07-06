@@ -160,7 +160,10 @@
     <button onclick="window.location.href='about.html'">About</button>
   </header>
 
-  <div class="section-tabs">
+  
+    <div class="section-tabs-wrapper" style="overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; padding: 10px;">
+      <div class="section-tabs" style="display: inline-flex; gap: 10px;">
+    
     <button class="active" onclick="scrollToMenu()">
       <img src="https://img.icons8.com/ios-filled/50/ffffff/restaurant.png" alt="Food Icon" />
       Food
@@ -173,9 +176,12 @@
       <img src="https://img.icons8.com/ios-filled/50/ffffff/cake.png" alt="Dessert Icon" />
       Dessert
     </button>
-  </div>
+  
+      </div>
+    </div>
 
-  <div class="filters">
+    <div class="filters">
+
     <button class="filter-btn active" data-category="all">All</button>
     <button class="filter-btn" data-category="pates">Pâtes</button>
     <button class="filter-btn" data-category="pizza">Pizza</button>
