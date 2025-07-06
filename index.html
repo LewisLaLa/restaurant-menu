@@ -16,16 +16,13 @@
     }
 
     header {
-      position: static;
       background-color: #2a3b03;
       padding: 10px;
       display: flex;
       justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      position: static;
     }
 
     header button {
@@ -45,14 +42,11 @@
       background-color: #384e04;
     }
 
-    .sticky-wrapper {
+    .section-tabs {
       position: sticky;
-      top: 50px;
+      top: 0;
       z-index: 999;
       background-color: #fef7ec;
-    }
-
-    .section-tabs {
       overflow-x: auto;
       white-space: nowrap;
       padding: 10px 0;
@@ -93,6 +87,10 @@
     }
 
     .filters {
+      position: sticky;
+      top: 72px;
+      z-index: 998;
+      background-color: #fef7ec;
       text-align: center;
       padding: 10px 0;
       overflow-x: auto;
@@ -160,30 +158,28 @@
     <button onclick="window.location.href='about.html'">About</button>
   </header>
 
-  <div class="sticky-wrapper">
-    <div class="section-tabs">
-      <button class="active" onclick="scrollToMenu()">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/restaurant.png" alt="Food Icon" />
-        Food
-      </button>
-      <button onclick="window.location.href='beverages.html'">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/cocktail.png" alt="Beverages Icon" />
-        Beverages
-      </button>
-      <button onclick="window.location.href='dessert.html'">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/cake.png" alt="Dessert Icon" />
-        Dessert
-      </button>
-    </div>
+  <div class="section-tabs">
+    <button class="active" onclick="scrollToMenu()">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/restaurant.png" alt="Food Icon" />
+      Food
+    </button>
+    <button onclick="window.location.href='beverages.html'">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/cocktail.png" alt="Beverages Icon" />
+      Beverages
+    </button>
+    <button onclick="window.location.href='dessert.html'">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/cake.png" alt="Dessert Icon" />
+      Dessert
+    </button>
+  </div>
 
-    <div class="filters" style="position: sticky; top: 120px; z-index: 998; background-color: #fef7ec;">
-      <button class="filter-btn active" data-category="all">All</button>
-      <button class="filter-btn" data-category="pates">Pâtes</button>
-      <button class="filter-btn" data-category="pizza">Pizza</button>
-      <button class="filter-btn" data-category="hors">Hors-d'oeuvres</button>
-      <button class="filter-btn" data-category="platters">Platters</button>
-      <button class="filter-btn" data-category="dessert">Desserts</button>
-    </div>
+  <div class="filters">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="pates">Pâtes</button>
+    <button class="filter-btn" data-category="pizza">Pizza</button>
+    <button class="filter-btn" data-category="hors">Hors-d'oeuvres</button>
+    <button class="filter-btn" data-category="platters">Platters</button>
+    <button class="filter-btn" data-category="dessert">Desserts</button>
   </div>
 
   <div class="menu" id="menu"></div>
